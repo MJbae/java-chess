@@ -8,9 +8,6 @@ import java.util.List;
 public class Rank {
     List<Piece> pieces = new ArrayList<Piece>(8);
 
-    Rank() {
-    }
-
     public static Rank initWhiteRoyalPieces() {
         Rank rank = new Rank();
 

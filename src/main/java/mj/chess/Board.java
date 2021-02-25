@@ -24,9 +24,7 @@ public class Board {
 
     private List<Rank> ranks = new ArrayList<>(8);
 
-    public Board() {
-        initRows();
-    }
+    public Board() { }
 
     public void initialize() {
         ranks.add(Rank.initBlackRoyalPieces());
@@ -49,17 +47,13 @@ public class Board {
                 .collect(joining());
     }
 
-    private void initRows() {
-        ranks = new ArrayList<>(8);
-    }
-
     private String getStringFromRow(Rank row) {
         return row.getPieces().stream()
                 .map(Piece::getRepresentation)
                 .collect(joining());
     }
 
-    private Rank getRank(int yCoordinate){
+    private Rank getRank(int yCoordinate) {
         return ranks.get(yCoordinate);
     }
 }
