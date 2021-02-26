@@ -11,10 +11,16 @@ class PieceTest {
     @Test
     @DisplayName("체스말 생성에 따라 색, 타입, 표현문자 상태 확인 ")
     void createPiece() {
-        assertAll(
-                () -> verifyPiece(Piece.PieceMaker.createWhitePawn(), Color.WHITE, Type.PAWN),
-                () -> verifyPiece(Piece.PieceMaker.createBlackPawn(), Color.BLACK, Type.PAWN)
-        );
+        Position position = new Position(1, 1);
+
+        verifyPiece(Piece.PieceMaker.createWhitePawn(position), Color.WHITE,Type.PAWN);
+        verifyPiece(Piece.PieceMaker.createBlackKnight(position), Color.BLACK,Type.KNIGHT);
+        verifyPiece(Piece.PieceMaker.createWhiteRook(position), Color.WHITE,Type.ROOK);
+        verifyPiece(Piece.PieceMaker.createWhiteBishop(position), Color.WHITE,Type.BISHOP);
+        verifyPiece(Piece.PieceMaker.createBlackQueen(position), Color.BLACK, Type.QUEEN);
+        verifyPiece(Piece.PieceMaker.createWhiteKing(position), Color.WHITE,Type.KING);
+
+
     }
 
     private void verifyPiece(final Piece piece, Color color, Type type) {
@@ -37,38 +43,6 @@ class PieceTest {
 
     private void verifyRepresentationOfPiece(final Piece piece, final String representation) {
         assertThat(piece.getRepresentation()).isEqualTo(representation);
-    }
-
-    @Test
-    @DisplayName("모든 기물에 대해 흑백 상태 확인")
-    void checkIsWhiteOrBlack() {
-        assertAll(
-                this::verifyIsBlack,
-                this::verifyIsWhite
-        );
-
-    }
-
-    private void verifyIsWhite() {
-        assertAll(
-                () -> assertThat(Piece.PieceMaker.createWhitePawn().isWhite()).isTrue(),
-                () -> assertThat(Piece.PieceMaker.createWhiteKnight().isWhite()).isTrue(),
-                () -> assertThat(Piece.PieceMaker.createWhiteRook().isWhite()).isTrue(),
-                () -> assertThat(Piece.PieceMaker.createWhiteBishop().isWhite()).isTrue(),
-                () -> assertThat(Piece.PieceMaker.createWhiteQueen().isWhite()).isTrue(),
-                () -> assertThat(Piece.PieceMaker.createWhiteKing().isWhite()).isTrue()
-        );
-    }
-
-    private void verifyIsBlack() {
-        assertAll(
-                () -> assertThat(Piece.PieceMaker.createBlackPawn().isBlack()).isTrue(),
-                () -> assertThat(Piece.PieceMaker.createBlackKnight().isBlack()).isTrue(),
-                () -> assertThat(Piece.PieceMaker.createBlackRook().isBlack()).isTrue(),
-                () -> assertThat(Piece.PieceMaker.createBlackBishop().isBlack()).isTrue(),
-                () -> assertThat(Piece.PieceMaker.createBlackQueen().isBlack()).isTrue(),
-                () -> assertThat(Piece.PieceMaker.createBlackKing().isBlack()).isTrue()
-        );
     }
 }
 

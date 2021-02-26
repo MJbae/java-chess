@@ -1,18 +1,20 @@
 package mj.chess.pieces;
 
 public enum Type {
-    BISHOP("b"),
-    KING("k"),
-    KNIGHT("n"),
-    PAWN("p"),
-    QUEEN("q"),
-    ROOK("r"),
-    BLANK(".");
+    BISHOP("b", 3.0),
+    KING("k", 0.0),
+    KNIGHT("n", 2.5),
+    PAWN("p", 1.0),
+    QUEEN("q", 9.0),
+    ROOK("r", 5.0),
+    BLANK(".", 0.0);
 
     private final String representation;
+    private final double defaultPoint;
 
-    Type(String representation) {
+    Type(String representation, double defaultPoint) {
         this.representation = representation;
+        this.defaultPoint = defaultPoint;
     }
 
     public String getRepresentation(Color color) {
@@ -21,5 +23,9 @@ public enum Type {
         }
 
         return representation;
+    }
+
+    public double getDefaultPoint() {
+        return defaultPoint;
     }
 }

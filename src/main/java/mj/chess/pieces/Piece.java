@@ -149,56 +149,64 @@ public class Piece {
 
     public static class PieceMaker {
 
-        public static Piece createWhitePawn() {
-            return new Piece(Color.WHITE, Type.PAWN);
+        private static Piece createWhite(Type type, Position position) {
+            return new Piece(Color.WHITE, type, position);
         }
 
-        public static Piece createBlackPawn() {
-            return new Piece(Color.BLACK, Type.PAWN);
+        private static Piece createBlack(Type type, Position position) {
+            return new Piece(Color.BLACK, type, position);
         }
 
-        public static Piece createWhiteRook() {
-            return new Piece(Color.WHITE, Type.ROOK);
+        public static Piece createWhitePawn(Position position) {
+            return createWhite(Type.PAWN, position);
         }
 
-        public static Piece createBlackRook() {
-            return new Piece(Color.BLACK, Type.ROOK);
+        public static Piece createBlackPawn(Position position) {
+            return createBlack(Type.PAWN, position);
         }
 
-        public static Piece createWhiteBishop() {
-            return new Piece(Color.WHITE, Type.BISHOP);
+        public static Piece createWhiteKnight(Position position) {
+            return createWhite(Type.KNIGHT, position);
         }
 
-        public static Piece createBlackBishop() {
-            return new Piece(Color.BLACK, Type.BISHOP);
+        public static Piece createBlackKnight(Position position) {
+            return createBlack(Type.KNIGHT, position);
         }
 
-        public static Piece createWhiteQueen() {
-            return new Piece(Color.WHITE, Type.QUEEN);
+        public static Piece createWhiteRook(Position position) {
+            return createWhite(Type.ROOK, position);
         }
 
-        public static Piece createBlackQueen() {
-            return new Piece(Color.BLACK, Type.QUEEN);
+        public static Piece createBlackRook(Position position) {
+            return createBlack(Type.ROOK, position);
         }
 
-        public static Piece createWhiteKnight() {
-            return new Piece(Color.WHITE, Type.KNIGHT);
+        public static Piece createWhiteBishop(Position position) {
+            return createWhite(Type.BISHOP, position);
         }
 
-        public static Piece createBlackKnight() {
-            return new Piece(Color.BLACK, Type.KNIGHT);
+        public static Piece createBlackBishop(Position position) {
+            return createBlack(Type.BISHOP, position);
         }
 
-        public static Piece createWhiteKing() {
-            return new Piece(Color.WHITE, Type.KING);
+        public static Piece createWhiteQueen(Position position) {
+            return createWhite(Type.QUEEN, position);
         }
 
-        public static Piece createBlackKing() {
-            return new Piece(Color.BLACK, Type.KING);
+        public static Piece createBlackQueen(Position position) {
+            return createBlack(Type.QUEEN, position);
         }
 
-        public static Piece createBlank() {
-            return new Piece(Type.BLANK);
+        public static Piece createWhiteKing(Position position) {
+            return createWhite(Type.KING, position);
+        }
+
+        public static Piece createBlackKing(Position position) {
+            return createBlack(Type.KING, position);
+        }
+
+        public static Piece createBlank(Position position) {
+            return new Piece(Color.NO_COLOR, Type.BLANK, position);
         }
     }
 }
